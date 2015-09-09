@@ -1,7 +1,7 @@
-MySQL for OpenShift - Docker images
+MySQL for DeployDock - Docker images
 ========================================
 
-This repository contains Dockerfiles for MySQL images for OpenShift.
+This repository contains Dockerfiles for MySQL images for DeployDock.
 Users can choose between RHEL and CentOS based images.
 
 
@@ -28,7 +28,7 @@ Choose either the CentOS7 or RHEL7 based image:
     subscribed RHEL machine.
 
     ```
-    $ git clone https://github.com/openshift/mysql.git
+    $ git clone https://github.com/Meros-io/mysql.git
     $ cd mysql
     $ make build TARGET=rhel7 VERSION=5.5
     ```
@@ -38,13 +38,13 @@ Choose either the CentOS7 or RHEL7 based image:
     This image is available on DockerHub. To download it run:
 
     ```
-    $ docker pull openshift/mysql-55-centos7
+    $ docker pull deploydock/mysql-55-centos7
     ```
 
     To build a MySQL image from scratch run:
 
     ```
-    $ git clone https://github.com/openshift/mysql.git
+    $ git clone https://github.com/Meros-io/mysql.git
     $ cd mysql
     $ make build VERSION=5.5
     ```
@@ -93,12 +93,12 @@ matches the user UID or name which is running inside the container.**
 Usage
 ---------------------------------
 
-For this, we will assume that you are using the `openshift/mysql-55-centos7` image.
+For this, we will assume that you are using the `deploydock/mysql-55-centos7` image.
 If you want to set only the mandatory environment variables and not store
 the database in a host directory, execute the following command:
 
 ```
-$ docker run -d --name mysql_database -e MYSQL_USER=user -e MYSQL_PASSWORD=pass -e MYSQL_DATABASE=db -p 3306:3306 openshift/mysql-55-centos7
+$ docker run -d --name mysql_database -e MYSQL_USER=user -e MYSQL_PASSWORD=pass -e MYSQL_DATABASE=db -p 3306:3306 deploydock/mysql-55-centos7
 ```
 
 This will create a container named `mysql_database` running MySQL with database

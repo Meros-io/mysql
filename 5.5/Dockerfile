@@ -1,6 +1,6 @@
 FROM centos:centos7
 
-# MySQL image for OpenShift.
+# MySQL image for DeployDock.
 #
 # Volumes:
 #  * /var/lib/mysql/data - Datastore for MySQL
@@ -10,15 +10,15 @@ FROM centos:centos7
 #  * $MYSQL_DATABASE - Name of the database to create
 #  * $MYSQL_ROOT_PASSWORD (Optional) - Password for the 'root' MySQL account
 
-MAINTAINER SoftwareCollections.org <sclorg@redhat.com>
+MAINTAINER Eric Sites <eric@meros.io>
 
 ENV MYSQL_VERSION=5.5 \
     HOME=/var/lib/mysql
 
 LABEL io.k8s.description="MySQL is a multi-user, multi-threaded SQL database server" \
       io.k8s.display-name="MySQL 5.5" \
-      io.openshift.expose-services="3306:mysql" \
-      io.openshift.tags="database,mysql,mysql55"
+      io.deploydock.expose-services="3306:mysql" \
+      io.deploydock.tags="database,mysql,mysql55"
 
 EXPOSE 3306
 

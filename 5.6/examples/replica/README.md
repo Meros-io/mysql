@@ -20,14 +20,14 @@ See: https://dev.mysql.com/doc/refman/5.6/en/replication.html
 ## How does this example work?
 
 The provided JSON file (`mysql_replica.json`) contains a `Template` resource that
-groups the Kubernetes and OpenShift resources which are meant to be created.
+groups the Kubernetes and DeployDock resources which are meant to be created.
 This template will start with one MySQL master server and one slave server.
 
 ## Persistent storage
 
 In order to provide the persistent storage for the MySQL master server, the administrator
-of OpenShift needs to create a PersistentVolume that you can claim. This example requires a PersistentVolume of size 512m be available.
-To learn more about how to create PersistentVolume, refer to [OpenShift documentation](https://docs.openshift.org/latest/admin_guide/persistent_storage_nfs.html)
+of DeployDock needs to create a PersistentVolume that you can claim. This example requires a PersistentVolume of size 512m be available.
+To learn more about how to create PersistentVolume, refer to [DeployDock documentation](https://docs.deploydock.io/latest/admin_guide/persistent_storage_nfs.html)
 
 ### Service 'mysql-master'
 
@@ -52,7 +52,7 @@ Service endpoints.
 ### ReplicationController 'mysql-master'
 
 This resource defines the `PodTemplate` of the MySQL server that acts as the
-'master'. The Pod uses the `openshift/mysql-56-centos7` image, but it sets the
+'master'. The Pod uses the `deploydock/mysql-56-centos7` image, but it sets the
 special 'entrypoint' named `mysqld-master`. This will tell the MySQL image to
 configure the MySQL server as the 'master'.
 
